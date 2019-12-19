@@ -349,3 +349,11 @@ interesting challenge, and to Geographer who made this write up actually read-ab
 
 We are Team Ropkek, which for this CTF was composed of: Plean, Geographer, Blue
 and myself, Pycatchown.
+
+Member's Twitter:
+    [@ShiroPycatchown](https://twitter.com/ShiroPycatchown),
+    [@geographeur](https://twitter.com/geographeur),
+    [@plean702](https://twitter.com/plean702),
+    [@jukebox_re](https://twitter.com/jukebox_re).
+    
+Don't hesitate to check out [@HexpressoCTF](https://twitter.com/HexpressoCTF), you'll find there [@chaignc](https://twitter.com/chaignc), the author of this challenge, and somebody told me he is super hot.
