@@ -356,4 +356,4 @@ Member's Twitter:
     [@plean702](https://twitter.com/plean702),
     [@jukebox_re](https://twitter.com/jukebox_re).
     
-Don't hesitate to check out [@HexpressoCTF](https://twitter.com/HexpressoCTF), you'll find there [@chaignc](https://twitter.com/chaignc), the author of this challenge, and somebody told me he is super hot.
+Don't hesitate to check out [@HexpressoCTF](https://twitter.com/HexpressoCTF), you'll find there [@chaignc](https://twitter.com/chaignc), the author of this challenge, and Geographer told me he is super hot.
