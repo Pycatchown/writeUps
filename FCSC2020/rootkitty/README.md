@@ -1,13 +1,6 @@
----
-layout: post
-title:  "Rootkitty"
-date:   2020-05-04 08:00:00 +0200
-categories: writeup
----
-
 # Hello Rootkitty - FCSC 2020
 
-This is Pycatchown here, for a writeup of a one of the most point-worthy pwn challenges of this year's FCSC edition.
+This is Pycatchown here, for a writeup of one of the most point-worthy pwn challenges of this year's FCSC edition.
 It's a kernel based exploitation challenge.
 
 
@@ -352,15 +345,15 @@ __int64 __fastcall ecsc_sys_getdents64(__int64 a1, __int64 a2)
 }
 ```
 
-This is a big function here, is the Ida pseudo of the function that hijacked the real getdents, this one is pretty big, and since we're on a CTF, I'd rather go to the essential.
+This big function here, is the Ida pseudo code of the function that hijacked the real getdents, this one is pretty big, and since we're on a CTF, I'd rather go to the essential.
 I'm looking for an explaination of two last things :
 * How does this module will help me in exploitation ?
-* Why can't `ls` can't give me the right filenames of `ecsc_flag_` files ?
+* Why can't `ls` give me the right filenames of `ecsc_flag_` files ?
 
 This means we're looking for two things, a bug, and anything in the code that could mean a filename change.
 
 For the bug, it's pretty simple, our super pwner eyes catches two `strcpy` function on which we have the controle of one of the parameters, one is here for exemple, 
-`v12 = strcpy((char *)&v23, (const char *)(v2 + 19));`. We control the second parameter, src, or here, v2, which is, at the stop defined as a pointer in a2, our second function's argument. According to the documentation, we believe a2 (so, v2) is a pointer to a `dirent` structure, which holds informations about a file, here again.
+`v12 = strcpy((char *)&v23, (const char *)(v2 + 19));`. We control the second parameter, src, or here, v2, which is, at the beginning defined as a pointer in a2, our second function's argument. According to the documentation, we believe a2 (so, v2) is a pointer to a `dirent` structure, which holds informations about a file, here again.
 ```c
 struct dirent {
     long     d_ino;              
@@ -425,7 +418,7 @@ we would end up with something like `0xffffffffc0449d72`, which, obviously, is n
 We said that, to unload modules, we had to provide a function to the kernel. This function here is `ecsc_end`. Since we want to get rid of this module, technically,
 all we have to do is to call this function, and manage to quit our program without crashing.
 
-Our plan is simple. We get the address of `ecsc_end` for `/proc/kallsyms` (a file which contains kernel addresses), we get the address of `sys_exit` the same way,
+Our plan is simple. We get the address of `ecsc_end` from `/proc/kallsyms` (a file which contains kernel addresses), we get the address of `sys_exit` the same way,
 and we do a buffer overflow in order to call both of them sequentially.
 
 Our final exploit looks like that :
@@ -444,7 +437,7 @@ payload = payload.replace(b"\0", b"")
 f = open(payload, "w+").close()
 ```
 
-All we'll have to once we have load the guest, is to get the address of ecsc_end and sys_exit.
+All we'll have to do once we have load the guest, is to get the address of ecsc_end and sys_exit.
 
 
 Guest:
@@ -490,6 +483,6 @@ ECSC{REDACTED}
 
 Yay ! Success, all we have to do now, is exactly the same on the remote ssh server, and we're done.
 
-Thank you for readding, hope you enjoyed this writeup, and special thanks to the author of this challenge, which was really fun !
+Thank you for reading, hope you enjoyed this writeup, and special thanks to the author of this challenge, which was really fun !
 
 This was Pycatchown for ya', keep hacking !
