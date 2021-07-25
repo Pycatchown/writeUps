@@ -35,7 +35,7 @@ Here comes the off by one on the print_bets function, which allows us to get the
 
 At this point it's won, since we have a leak we don't bother leaking anything thanks to the rop itself, we just leak the canary, the original value of the saved rsp (since we smash the main) so we can have a libc leak, and go straight for `execv("/bin/sh", NULL)`.
 
-## 3 - Exploit code
+## 3 - Exploit code
 
 ```python
 #!/usr/bin/env python
