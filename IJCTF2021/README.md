@@ -1,9 +1,11 @@
-IJCTF Pwn Challenge by Shiro (Pycatchown sometimes)
-# Casino Heist Writeup
+IJCTF Pwn Challenge Writeup by Shiro (Pycatchown sometimes)
+
+# Casino Heist
 
 ## Part 1 - Reverse engineering
 
 The code is terrible (of course, it's a challenge).
+
 Sometimes ints are used, sometime it's int64, sometimes it's signed, sometimes it's not, well, we quickly identify at least one of the vulnerabilities without even really digging into the code.
 
 We have a wallet, this wallet starts at 20 dollars, we can bet at least 5 dollars and no more than our wallet. If we fall at 0, the program exits itself, we can jackpot, and we can double the bet sometimes by adding a "m" at the end of our number.
@@ -129,4 +131,4 @@ while 1:
             exit(0)
 ```
 
-Thanks to the author if this challenge, we don't see a lots of type mis-management challenges and more generally, I enjoy challenges wich doesn't only rely in one vulnerability.
+Thanks to the author if this challenge, lionaneesh. We don't see a lots of type mis-management challenges and more generally, I enjoy challenges wich doesn't only rely in one vulnerability, so this was a fun one to me.
