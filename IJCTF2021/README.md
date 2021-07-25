@@ -1,6 +1,5 @@
 IJCTF Pwn Challenge Writeup by Shiro (Pycatchown sometimes)
-
-# Casino Heist
+# Casino Heist
 
 ## Part 1 - Reverse engineering
 
