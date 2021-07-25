@@ -126,8 +126,6 @@ while 1:
             io.sendlineafter(b"value: ", b"80m")
             #gdb.attach(io, gdbscript="b *(unsigned long long*)(&main+1322)")
             exploit()
-            io.interactive()
-            io.close()
             exit(0)
 ```
 
