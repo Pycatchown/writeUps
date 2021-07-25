@@ -31,9 +31,9 @@ Since not everything is signed, that meant that my negative value was considered
 So I tried to overflow the array of int64, and succeeded overflowing the binary until the saved rip.
 However, the binary is compiled with stack protection flag, which means if we want to exploit, we'll have to either find a way not to overwrite the canary, or find a way to leak it.
 
-Here comes the off by one on the print_bets function, which allows us to get the value we're about to overwrite before overwritng it.
+Here comes the off by one on the print_bets function, which allows us to get the value we're about to overwrite before overwriting it.
 
-At this point it's won, since we have a leak we don't bother leaking anything thanks to the rop itself, we just leak the canary, the original value of the saved rsp (since we smash the main) so we can have a libc leak, and go straight for `execv("/bin/sh", NULL)`.
+At this point it's won. Since we have a leak we don't bother leaking anything thanks to the rop itself, we just leak the canary, the original value of the saved rsp (as we smash the main) so we can have a libc leak, and go straight for `execv("/bin/sh", NULL)`.
 
 ## 3 - Exploit code
 
