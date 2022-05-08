@@ -150,7 +150,7 @@ The first thing you want to check when you look for vulnerabilities, is for buff
 We have one buffer here: creds.
 It is filled on the next function: b64_decode. It takes creds as destination for a base64 input (our Basic Auth check), and never considere the size of creds.
 
-That means that there is a buffer overflow in creds. If the result of the base64 is long than 0x100, we will overflow.
+That means that there is a buffer overflow in creds. If the result of the base64 is longer than 0x100, we will overflow.
 
 Concerning the main, it looks like this:
 ```c
