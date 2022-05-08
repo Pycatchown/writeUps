@@ -102,7 +102,7 @@ However, all those parts are executing in a sandbox environment. This sandbox is
  0009: 0x06 0x00 0x00 0x7fff0000  return ALLOW
  ```
 
-Every syscall that is not read, write, sigreturn, exit or brk will cause the immediate termination fo the process.
+Every syscall that is not read, write, sigreturn, exit or brk will cause the immediate termination of the process.
 
 #### In-Depth:
 
