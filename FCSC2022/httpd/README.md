@@ -86,7 +86,7 @@ Now concerning the internals, we note that we can give a byte input unrestricted
 
 Which leads us to 3 things that can go wrong with our inputs: The http parser, the base64 parser, and the authentication part.
 
-However, all those parts are executing in a sandbox environment. This sandbox is about a fork, were the code will be executed, and a heavy seccomp. By using seccomp-tools, we notice the following rules:
+However, all those parts are executing in a sandbox environment. This sandbox is about a fork, were the code will be executed, and a heavy seccomp. A seccomp is a set of rules that allow, or deny, the use of specific syscalls. By using seccomp-tools, we notice the following rules:
 ```
  line  CODE  JT   JF      K
 =================================
